@@ -11,13 +11,12 @@ defmodule BitcoinAverage.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :ibrowse, :httpotion, :timex, :exjsx, :gun],
+    [applications: [:logger, :ibrowse, :httpotion, :exjsx, :gun],
      mod: {BitcoinAverage, []}]
   end
 
   defp deps do
     [
-      {:timex, "~> 3.1.5"},
       {:httpotion, "~> 3.0.2"},
       {:ibrowse, "~> 4.2"},
       {:exjsx, "~> 3.2.1"},

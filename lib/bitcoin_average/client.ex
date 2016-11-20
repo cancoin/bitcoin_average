@@ -19,7 +19,7 @@ defmodule BitcoinAverage.Client do
   def signed_request_header do
     {:ok, public_key} = :application.get_env(:bitcoin_average, :public_key)
     {:ok, private_key} = :application.get_env(:bitcoin_average, :private_key)
-    now = Timex.now |> Timex.to_unix
+    now = :erlang.system_time(:seconds)
     request = "#{now}.#{public_key}"
     signature = :crypto.hmac(:sha256, String.to_char_list(private_key), String.to_char_list(request))
     encoded_signature = Base.encode16(signature, case: :lower)
